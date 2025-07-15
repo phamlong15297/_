@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Needed for full git diff
+          ref: ${{ github.head_ref }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
