@@ -2,8 +2,6 @@ name: Annotated Linting on Changed Files Only
 
 on:
   pull_request:
-    paths:
-      - '**.py'
 
 jobs:
   review:
