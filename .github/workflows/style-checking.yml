@@ -46,15 +46,5 @@ jobs:
         run: |
           ruff check . --output-format=github
 
-      - name: Run PyreFly on changed files
-        if: steps.changed.outputs.changed_files != ''
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "${{ steps.changed.outputs.changed_files }}" | xargs pyrefly --strict \
-          | reviewdog -efm="%f:%l:%c: %m" \
-              -name="pyrefly" \
-              -reporter=github-pr-review \
-              -filter-mode=diff_context \
-              -fail-on-error=true \
-              -level=error
+      - name: Typecheck
+        run: pyrefly check
