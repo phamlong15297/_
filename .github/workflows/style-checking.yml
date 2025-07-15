@@ -1,4 +1,4 @@
-name: Lint Changed Python Files Only
+name: Annotated Linting on Changed Files Only
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - '**.py'
 
 jobs:
-  lint:
+  review:
     name: Ruff + PyreFly on Changed Files
     runs-on: ubuntu-latest
 
@@ -14,7 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Needed for full git diff
+          fetch-depth: 0  # needed for git diff
           ref: ${{ github.head_ref }}
 
       - name: Set up Python
@@ -22,23 +22,46 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
+      - name: Install Python tools
         run: |
-          python -m pip install --upgrade pip
+          pip install --upgrade pip
           pip install ruff pyrefly
 
-      - name: Get list of changed Python files
+      - name: Install reviewdog
+        run: |
+          curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s -- -b /usr/local/bin
+
+      - name: Get changed Python files
         id: changed
         run: |
-          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...${{ github.head_ref }} | grep '\.py$' || true)
-          echo "changed_files=$CHANGED_FILES" >> $GITHUB_OUTPUT
+          FILES=$(git diff --name-only origin/${{ github.base_ref }}...${{ github.head_ref }} | grep '\.py$' || true)
+          echo "$FILES"
+          echo "changed_files<<EOF" >> $GITHUB_OUTPUT
+          echo "$FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Run Ruff on changed files
         if: steps.changed.outputs.changed_files != ''
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "${{ steps.changed.outputs.changed_files }}" | xargs ruff check
+          echo "${{ steps.changed.outputs.changed_files }}" | xargs ruff check --output-format=github \
+          | reviewdog -f=github \
+              -name="ruff" \
+              -reporter=github-pr-review \
+              -filter-mode=diff_context \
+              -fail-on-error=true \
+              -level=error
 
       - name: Run PyreFly on changed files
         if: steps.changed.outputs.changed_files != ''
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "${{ steps.changed.outputs.changed_files }}" | xargs pyrefly --strict
+          echo "${{ steps.changed.outputs.changed_files }}" | xargs pyrefly --strict \
+          | reviewdog -efm="%f:%l:%c: %m" \
+              -name="pyrefly" \
+              -reporter=github-pr-review \
+              -filter-mode=diff_context \
+              -fail-on-error=true \
+              -level=error
