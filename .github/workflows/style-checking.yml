@@ -25,10 +25,6 @@ jobs:
           pip install --upgrade pip
           pip install ruff pyrefly
 
-      - name: Install reviewdog
-        run: |
-          curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s -- -b /usr/local/bin
-
       - name: Get changed Python files
         id: changed
         run: |
@@ -38,7 +34,6 @@ jobs:
           echo "$FILES" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
-      # TODO: check changed files only
       - name: Run Ruff on changed files
         if: steps.changed.outputs.changed_files != ''
         run: |

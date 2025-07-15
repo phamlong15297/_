@@ -1,2 +1,2 @@
 x = "hello"
-print(x + 4)
+print(x)
