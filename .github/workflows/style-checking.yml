@@ -44,7 +44,8 @@ jobs:
       - name: Run Ruff on changed files
         if: steps.changed.outputs.changed_files != ''
         run: |
-          ruff check . --output-format=github
+          echo "${{ steps.changed.outputs.changed_files }}" | xargs ruff check --output-format=github
 
       - name: Typecheck
-        run: pyrefly check
+        run: |
+          echo "${{ steps.changed.outputs.changed_files }}" | xargs pyrefly check
