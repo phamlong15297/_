@@ -48,9 +48,9 @@ jobs:
           echo "${{ steps.changed.outputs.changed_files }}" | xargs ruff check \
           | reviewdog -efm="%f:%l:%c: %m" \
               -name="ruff" \
-              -reporter=github-pr-review \
+              -reporter=github-pr-check \
               -filter-mode=diff_context \
-              -fail-on-error=true \
+              -fail-level=error \
               -level=error
 
       - name: Run PyreFly on changed files
