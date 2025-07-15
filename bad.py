@@ -1,8 +1,5 @@
-import os, sys  # Unused imports
-
 def bad_function(a, b = 10):  # default arg with no space, no type hints
     result = a + b
-    temp = "123"
     if result > 5:
         print("Result is big")
     else:
