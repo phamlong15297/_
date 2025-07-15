@@ -1,15 +1,19 @@
-# bad_code.py
+def bad_function(a, b = 10):  # default arg with no space, no type hints
+    result = a + b
+    if result > 5:
+        print("Result is big")
+    else:
+        print("Small")
+    return result
 
-import math,os
+def badFunctionTwo(x):  # inconsistent naming, no type hint
+    x = "a string"
+    x += 5  # type mismatch!
+    return x
 
-def foo(x: int, y: str) -> int:
-    print(   "This is bad formatted and untyped code!" )
-    return x + y  # Type error: y is str
+class data:
+    def __init__(self):
+        self.items = []
 
-def Bar():
-  a=1
-  b=2
-  print(  a+b  )
-
-foo(5, "10")
-Bar()
+    def addItem(self, item):
+        self.items.append(item)
