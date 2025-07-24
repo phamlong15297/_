@@ -69,6 +69,9 @@ jobs:
     needs: get-changed-files
     name: Eslint on changed files
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sample-node
     if: ${{ needs.get-changed-files.outputs.js_files != '' }}
     steps:
       - name: Checkout code
@@ -81,10 +84,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd sample-node
           npm ci
 
       - name: Run ESLint on changed files
         run: |
-          
           echo "${{ needs.get-changed-files.outputs.js_files }}" | xargs npx eslint
