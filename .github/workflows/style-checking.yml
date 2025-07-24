@@ -21,7 +21,7 @@ jobs:
         id: changed
         run: |
           PY_FILES=$(git diff --name-only origin/${{ github.base_ref }}...${{ github.head_ref }} | grep '\.py$' || true)
-          JS_FILES=$(git diff --name-only origin/${{ github.base_ref }}...${{ github.head_ref }} | grep '\.js$' || true)
+          JS_FILES=$(git diff --name-only origin/${{ github.base_ref }}...${{ github.head_ref }} | grep '\.js$' | sed 's|^sample-node/||' || true)
 
           echo "Python files: $PY_FILES"
           echo "JavaScript files: $JS_FILES"
@@ -86,4 +86,5 @@ jobs:
 
       - name: Run ESLint on changed files
         run: |
+          
           echo "${{ needs.get-changed-files.outputs.js_files }}" | xargs npx eslint
