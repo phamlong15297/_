@@ -86,4 +86,5 @@ jobs:
 
       - name: Run ESLint on changed files
         run: |
+          cd sample-node
           echo "${{ needs.get-changed-files.outputs.js_files }}" | xargs npx eslint
