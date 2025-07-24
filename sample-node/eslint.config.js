@@ -5,9 +5,9 @@ import pluginPrettierRecommended from 'eslint-plugin-prettier/configs/recommende
 export default [
   js.configs.recommended,
   prettier,
-  pluginPrettierRecommended,
   {
     files: ['**/*.js'],
+    extends: [prettier],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
