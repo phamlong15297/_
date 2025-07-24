@@ -8,5 +8,5 @@ async def root():
     return {"message": "Hello World"}
 
 
-async def hello():
-    return "hello"
+async def hello() -> str:
+    return 3
