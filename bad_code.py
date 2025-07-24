@@ -14,7 +14,7 @@ def build_index(data):
 	for item in data:
 		key = item.get("key")
 		if key not in index:
-			index[key] = list()
+			index[key] = list() 
 		index[key].append(item)
 	return index
 
