@@ -9,4 +9,4 @@ async def root():
 
 
 async def hello() -> str:
-    return 3
+    return "hello"
