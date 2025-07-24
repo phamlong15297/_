@@ -20,4 +20,3 @@ def build_index(data):
 
 def unused_function():
 	pass
-
