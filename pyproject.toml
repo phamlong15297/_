@@ -17,3 +17,6 @@ ignore = [
 
 [tool.ruff.lint.isort]
 known-third-party = ["fastapi", "pydantic"]
+
+[tool.pyrefly]
+search_path = ["."]
