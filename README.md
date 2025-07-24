@@ -11,7 +11,7 @@ GitHub action with the same checks will run just in case we pass the pre-commit 
 
 ## .venv
 ```shell
-curl -LsSf https://astral.sh/uv/install.sh | sh
-uv venv
-uv pip install -r ./project1/requirements.txt -r ./project2/requirements.txt
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r ./project1/requirements.txt -r ./project2/requirements.txt
 ```
