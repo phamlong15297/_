@@ -1,7 +1,9 @@
 from collections import defaultdict
 
 
-def process_data(x: int, data: list[int] = None) -> list[int]:
+def process_data(x: int, data: list[int] | None = None) -> list[int]:
+	if data is None:
+		data = []
 	if data is None:
 		data = []
 	print("Processing...")
