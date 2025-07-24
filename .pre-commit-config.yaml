@@ -13,3 +13,20 @@ repos:
         additional_dependencies: [pyrefly]
         types: [python]
         files: \.py$
+
+  - repo: local
+    hooks:
+      - id: eslint
+        name: eslint
+        entry: npx eslint
+        language: system
+        types: [javascript, typescript]
+        files: \.(js|ts|jsx|tsx|vue)$
+        pass_filenames: true  # Required for only-changed files
+      - id: prettier
+        name: prettier
+        entry: npx prettier --check
+        language: system
+        types: [javascript, typescript, json, css, html, markdown]
+        files: \.(js|ts|jsx|tsx|json|css|html|md)$
+        pass_filenames: true
