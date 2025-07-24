@@ -7,5 +7,6 @@ app = FastAPI()
 async def root():
     return {"message": "Hello World"}
 
+
 async def hell():
     return "ok"
