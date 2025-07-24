@@ -15,3 +15,13 @@ python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install -r ./project1/requirements.txt -r ./project2/requirements.txt
 ```
+
+## Eslint and prettier
+### Vscode extensions
+* esbenp.prettier-vscode
+* dbaeumer.vscode-eslint
+
+### Install
+```shell
+npm install --save-dev eslint prettier eslint-config-prettier eslint-plugin-prettier
+```
