@@ -1,11 +1,16 @@
-from fastapi import FastAPI
-
-app = FastAPI()
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+def   greet(name):
+        print("Hello, "+name + " ! ")
 
-async def hell():
-    return "ok"
+
+def add(x,y):return x+y
+
+
+
+def unused_function():
+    pass
+
+
+greet(   "Alice" )
+print(  add(5 ,6))
