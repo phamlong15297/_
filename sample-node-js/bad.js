@@ -1,4 +1,7 @@
-function sayHello(name) {
-  console.log('Hello, ' + name);
+const foo=   (x ,y)=>{
+console.log( 'sum is:'+x+y )
 }
-sayHello('World');
+
+var unused = 42
+
+foo(1,'2')
