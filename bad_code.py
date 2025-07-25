@@ -10,4 +10,4 @@ def unused_func():
     pass
 
 
-x = add_numbers("5", 3)
+x = add_numbers(5, 3)
