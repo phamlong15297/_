@@ -23,7 +23,7 @@ jobs:
         id: changed
         run: |
           PY_FILES=$(git diff --name-only origin/${{ github.base_ref }}...${{ github.head_ref }} | grep '\.py$' || true)
-          JS_FILES=$(git diff --name-only origin/${{ github.base_ref }}...${{ github.head_ref }} | grep '\.js$' | sed 's|^frontend_new/||' || true)
+          JS_FILES=$(git diff --name-only origin/${{ github.base_ref }}...${{ github.head_ref }} | grep '\.js$' | sed 's|^sample-node-js/||' || true)
 
           echo "Python files: $PY_FILES"
           echo "JavaScript files: $JS_FILES"
@@ -74,7 +74,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: frontend_new
+        working-directory: sample-node-js
     if: ${{ needs.get-changed-files.outputs.js_files != '' }}
     steps:
       - name: Checkout code
