@@ -13,3 +13,21 @@ repos:
         additional_dependencies: [pyrefly]
         types: [python]
         files: \.py$
+
+  - repo: local
+    hooks:
+      - id: eslint
+        name: eslint
+        # cd sample-node-js then run against changed files (sample-node-js in filename will be cut)
+        entry: bash -c 'cd sample-node-js && npx eslint $(echo "$@" | sed "s|sample-node-js/||g")' --
+        language: system
+        types: [javascript]
+        files: \.(js|jsx|vue)$
+        pass_filenames: true  # Required for only-changed files
+      - id: prettier
+        name: prettier
+        entry: bash -c 'cd sample-node-js && npx prettier --check $(echo "$@" | sed "s|sample-node-js/||g")' --
+        language: system
+        types: [javascript]
+        files: \.(js|jsx|vue)$
+        pass_filenames: true
