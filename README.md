@@ -9,6 +9,11 @@ After installing it, every time you run `git commit`, it will run to check code 
 
 GitHub action with the same checks will run just in case we pass the pre-commit (without installing, bypass with config,..)
 
+To update version of tool inside `.pre-commit-config.yaml`
+```shell
+pre-commit autoupdate
+```
+
 ## .venv
 ```shell
 python3 -m venv .venv
@@ -68,16 +73,16 @@ Pre-commit will run ruff, prefly, eslint as local, so if modify, we need modify 
 ## Ruff
 Add to `requirements.txt` or run `pip install ruff`
 
-To check manually
+To lint and format
 ```shell
 ruff check --fix
+ruff format
 ```
 
-To run on git commit
+Precommit hooks are defined in `.pre-commit-config.yaml`. They are equivalent to
 ```shell
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.4.4
-    hooks:
-      - id: ruff
-        args: [--fix] # auto fix code on git commit - add this
+ruff check
+ruff format --diff
 ```
+### Vscode
+In Vscode's UI, right click then "Format code with ... + Ruff" and "Source Action ..." to trigger Ruff
