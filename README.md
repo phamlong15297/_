@@ -61,3 +61,6 @@ Currently, in `style-checking.yml` file, we setup Ruff, pyrefly, eslint as local
           pre-commit run --files $FILES
 ```
 Pre-commit will run ruff, prefly, eslint as local, so if modify, we need modify pre-commit file only.
+
+## Update
+`Biome` is a new tool that can replace both `Eslint + Prettier` but it does not support Vscode yet. So every time doing something, we have to check by command which is not convinient.
