@@ -64,3 +64,20 @@ Pre-commit will run ruff, prefly, eslint as local, so if modify, we need modify 
 
 ## Update
 `Biome` is a new tool that can replace both `Eslint + Prettier` but it does not support Vscode yet. So every time doing something, we have to check by command which is not convinient.
+
+## Ruff
+Add to `requirements.txt` or run `pip install ruff`
+
+To check manually
+```shell
+ruff check --fix
+```
+
+To run on git commit
+```shell
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.4
+    hooks:
+      - id: ruff
+        args: [--fix] # auto fix code on git commit - add this
+```
