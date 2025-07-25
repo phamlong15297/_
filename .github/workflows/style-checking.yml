@@ -70,3 +70,11 @@ jobs:
           FILES="${{ needs.get-changed-files.outputs.py_files }} ${{ needs.get-changed-files.outputs.js_files }}"
           echo "Running pre-commit on files: $FILES"
           pre-commit run --files $FILES
+      
+      # In the current .pre-commit-config.yaml, I do not setup auto fix with Ruff,.. just checking code, developers have to fix it locally
+      # Therefore, this code is necessary at this point.
+      # - name: Auto commit
+      #   run: |
+      #     git add .
+      #     git commit -m "auto commit after pre-commit fixed"
+      #     git push 
