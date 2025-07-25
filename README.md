@@ -16,6 +16,12 @@ source .venv/bin/activate
 python3 -m pip install -r ./project1/requirements.txt -r ./project2/requirements.txt
 ```
 
+## Python
+Vscode Extensions
+* meta.pyrefly
+* charliermarsh.ruff
+* EditorConfig.EditorConfig
+
 ## Eslint and prettier
 ### Vscode extensions
 * esbenp.prettier-vscode
