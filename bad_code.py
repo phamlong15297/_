@@ -1,14 +1,13 @@
-def greet(name):
-    print("Hello, " + name + " ! ")
+def add_numbers(a: int, b) -> int:
+    return a + b
 
 
-def add(x, y):
-    return x + y
+def hello():
+    print("Hello, world!")
 
 
-def unused_function():
+def unused_func():
     pass
 
 
-greet("Alice")
-print(add(5, 6))
+x = add_numbers(5, 3)

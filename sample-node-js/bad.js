@@ -1,4 +1,5 @@
-function sayHello(name) {
-  console.log('Hello, ' + name);
-}
-sayHello('World');
+const foo = (x, y) => {
+  console.log('sum is:' + x + y);
+};
+
+foo(1, '2');
