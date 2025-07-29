@@ -25,11 +25,9 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 uv add <package-name> # ex: uv add fastapi
 ```
 
-## .venv
+**Install all dependencies & create virtual environment**
 ```shell
-python3 -m venv .venv
-source .venv/bin/activate
-python3 -m pip install -r ./project1/requirements.txt -r ./project2/requirements.txt
+uv sync
 ```
 
 ## Python
