@@ -71,3 +71,8 @@ ruff format --diff
 ```
 ### Vscode
 In Vscode's UI, right click then "Format code with ... + Ruff" and "Source Action ..." to trigger Ruff
+
+## Issues
+
+### Pyrefly
+Sometimes, it does not recognize the `.venv` folder, choose Python interpreter in right corner then Ctrl Shift P + Reload
