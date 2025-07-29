@@ -14,6 +14,12 @@ To update version of tool inside `.pre-commit-config.yaml`
 pre-commit autoupdate
 ```
 
+## uv
+> Python package manager
+```shell
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
 ## .venv
 ```shell
 python3 -m venv .venv
