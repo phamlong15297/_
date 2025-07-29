@@ -90,3 +90,5 @@ Sometimes, it does not recognize the `.venv` folder, choose Python interpreter i
 pre-commit run --all-files
 ```
 Fail
+
+Github workflow does not run
