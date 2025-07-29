@@ -1,8 +1,26 @@
 # Run python linter & checker on github action & pre-commit locally
 
+## uv
+> Python package manager
 ```shell
-pip install pre-commit
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+**Add new package**
+```shell
+uv add <package-name> # ex: uv add fastapi
+uv add --dev <package-name> # ex: uv add ruff
+```
+
+**Install all dependencies & create virtual environment**
+```shell
+uv sync
+```
+
+## Precommit
+```shell
 pre-commit install
+pre-commit run --all-files
 ```
 
 After installing it, every time you run `git commit`, it will run to check code in the changed files (rules are defined in `.pre-commit-config.yaml`)
@@ -14,21 +32,11 @@ To update version of tool inside `.pre-commit-config.yaml`
 pre-commit autoupdate
 ```
 
-## uv
-> Python package manager
+### Mually run
 ```shell
-curl -LsSf https://astral.sh/uv/install.sh | sh
+pre-commit run --all-files
 ```
 
-**Add new package**
-```shell
-uv add <package-name> # ex: uv add fastapi
-```
-
-**Install all dependencies & create virtual environment**
-```shell
-uv sync
-```
 
 ## Python
 Vscode Extensions
@@ -76,3 +84,9 @@ In Vscode's UI, right click then "Format code with ... + Ruff" and "Source Actio
 
 ### Pyrefly
 Sometimes, it does not recognize the `.venv` folder, choose Python interpreter in right corner then Ctrl Shift P + Reload
+
+## TODO
+```shell
+pre-commit run --all-files
+```
+Fail
