@@ -3,7 +3,10 @@ name = "sample-project"
 version = "0.1.0"
 description = "A sample project"
 authors = [{ name = "Your Name", email = "you@example.com" }]
-dependencies = []
+dependencies = [
+    "fastapi>=0.116.1",
+    "flask>=3.1.1",
+]
 
 
 [tool.ruff.lint]

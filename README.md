@@ -20,6 +20,11 @@ pre-commit autoupdate
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
+**Add new package**
+```shell
+uv add <package-name> # ex: uv add fastapi
+```
+
 ## .venv
 ```shell
 python3 -m venv .venv
