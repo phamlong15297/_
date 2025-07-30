@@ -59,6 +59,7 @@ jobs:
         run: |
           cd sample-node-js
           yarn install --frozen-lockfile
+          # npm ci is also OK
 
       - name: Install pre-commit
         run: |
