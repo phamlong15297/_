@@ -1,13 +1,13 @@
 def add_numbers(a: int, b) -> int:
-	return a + b
+    return a + b
 
 
 def hello():
-	print("Hello, world!")
+    print("Hello, world!")
 
 
 def unused_func():
-	pass
+    pass
 
 
 x = add_numbers(5, 3)

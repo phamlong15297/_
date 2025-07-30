@@ -63,14 +63,14 @@ jobs:
 
       - name: Install pre-commit
         run: |
-          mkdir .venv
-          python3 -m venv .venv
-          source .venv/bin/activate
-          pip install pre-commit
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          uv sync --dev
+          source ./.venv/bin/activate
           pre-commit install
 
       - name: Run pre-commit
         run: |
+          source .venv/bin/activate
           FILES="${{ needs.get-changed-files.outputs.py_files }} ${{ needs.get-changed-files.outputs.js_files }}"
           echo "Running pre-commit on files: $FILES"
           pre-commit run --files $FILES
