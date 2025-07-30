@@ -26,25 +26,30 @@ uv add --dev <package-name> # ex: uv add ruff
 ```
 
 ## Precommit
+### Install
 ```shell
 pre-commit install
-pre-commit run --all-files
 ```
 
 After installing it, every time you run `git commit`, it will run to check code in the changed files (rules are defined in `.pre-commit-config.yaml`)
 
 GitHub action with the same checks will run just in case we pass the pre-commit (without installing, bypass with config,..)
 
-To update version of tool inside `.pre-commit-config.yaml`
-```shell
-pre-commit autoupdate
-```
-
 ### Mually run
+**Run against all files**
 ```shell
 pre-commit run --all-files
 ```
 
+**Run against added files**
+```shell
+pre-commit run
+```
+### Update version of pre-commit dependencies
+To update version of tool inside `.pre-commit-config.yaml`
+```shell
+pre-commit autoupdate
+```
 
 ## Python
 Vscode Extensions
@@ -92,11 +97,3 @@ In Vscode's UI, right click then "Format code with ... + Ruff" and "Source Actio
 
 ### Pyrefly
 Sometimes, it does not recognize the `.venv` folder, choose Python interpreter in right corner then Ctrl Shift P + Reload
-
-## TODO
-```shell
-pre-commit run --all-files
-```
-Fail
-
-Github workflow does not run

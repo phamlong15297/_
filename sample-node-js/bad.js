@@ -1,5 +1,5 @@
-const foo = (x, y) => {
-  console.log('sum is:' + x + y);
-};
+function sayHello(name) {
+  console.log('Hello, ' + name);
+}
 
-foo(1, '2');
+sayHello('Alice');
