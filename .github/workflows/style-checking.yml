@@ -63,10 +63,8 @@ jobs:
 
       - name: Install pre-commit
         run: |
-          mkdir .venv
-          python3 -m venv .venv
-          source .venv/bin/activate
-          pip install pre-commit
+          uv sync --dev
+          source ./.venv/bin/activate
           pre-commit install
 
       - name: Run pre-commit
