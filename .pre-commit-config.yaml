@@ -27,6 +27,7 @@ repos:
         entry: pyrefly check
         language: system
         types: [python]
+        additional_dependencies: [pyrefly]
         files: \.py$
 
   - repo: local
