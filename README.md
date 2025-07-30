@@ -40,6 +40,8 @@ After installing it, every time you run `git commit`, it will run to check code 
 GitHub action with the same checks will run just in case we pass the pre-commit (without installing, bypass with config,..)
 
 ### Mually run
+`pre-commit` runs inside `.venv`, make sure activate virtual environment before executing.
+
 **Run against all files**
 ```shell
 pre-commit run --all-files
