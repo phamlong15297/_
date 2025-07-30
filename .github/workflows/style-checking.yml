@@ -55,7 +55,7 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
+      - name: Install JS dependencies
         run: |
           cd sample-node-js
           yarn install --frozen-lockfile
@@ -63,6 +63,9 @@ jobs:
 
       - name: Install pre-commit
         run: |
+          mkdir .venv
+          python3 -m venv .venv
+          source .venv/bin/activate
           pip install pre-commit
           pre-commit install
 
