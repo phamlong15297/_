@@ -1,3 +1,5 @@
+from django.shortcuts import render
+
 def add_numbers(a: int, b) -> int:
 	return a + b
 
