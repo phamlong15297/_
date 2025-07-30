@@ -5,6 +5,10 @@
 ```shell
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
+**Init pyproject.toml**
+```shell
+uv init
+```
 
 **Install all dependencies & create virtual environment**
 ```shell
