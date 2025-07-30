@@ -36,10 +36,15 @@ After installing it, every time you run `git commit`, it will run to check code 
 GitHub action with the same checks will run just in case we pass the pre-commit (without installing, bypass with config,..)
 
 ### Mually run
+**Run against all files**
 ```shell
 pre-commit run --all-files
 ```
 
+**Run against added files**
+```shell
+pre-commit run
+```
 ### Update version of pre-commit dependencies
 To update version of tool inside `.pre-commit-config.yaml`
 ```shell
@@ -92,11 +97,3 @@ In Vscode's UI, right click then "Format code with ... + Ruff" and "Source Actio
 
 ### Pyrefly
 Sometimes, it does not recognize the `.venv` folder, choose Python interpreter in right corner then Ctrl Shift P + Reload
-
-## TODO
-```shell
-pre-commit run --all-files
-```
-Fail
-
-Github workflow does not run
