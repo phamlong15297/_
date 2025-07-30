@@ -71,6 +71,7 @@ jobs:
 
       - name: Run pre-commit
         run: |
+          source .venv/bin/activate
           FILES="${{ needs.get-changed-files.outputs.py_files }} ${{ needs.get-changed-files.outputs.js_files }}"
           echo "Running pre-commit on files: $FILES"
           pre-commit run --files $FILES
