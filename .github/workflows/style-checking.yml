@@ -63,6 +63,7 @@ jobs:
 
       - name: Install pre-commit
         run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
           uv sync --dev
           source ./.venv/bin/activate
           pre-commit install
