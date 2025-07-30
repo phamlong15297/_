@@ -6,15 +6,23 @@
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
+**Install all dependencies & create virtual environment**
+```shell
+# Local dev
+uv sync --dev
+# Product environment
+uv sync
+```
+
+**Activate venv**
+```shell
+source ./.venv/bin/activate
+```
+
 **Add new package**
 ```shell
 uv add <package-name> # ex: uv add fastapi
 uv add --dev <package-name> # ex: uv add ruff
-```
-
-**Install all dependencies & create virtual environment**
-```shell
-uv sync
 ```
 
 ## Precommit

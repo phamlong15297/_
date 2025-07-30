@@ -3,7 +3,7 @@
 # list of hooks: https://github.com/pre-commit/pre-commit-hooks/tree/main/pre_commit_hooks
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.12.5
+    rev: v0.12.7
     hooks:
       - id: ruff # ruff check --fix
         # args: [--fix] # use this if we want auto fix (remove unused imports,.. - linting)
@@ -20,8 +20,7 @@ repos:
       - id: pyrefly
         name: pyrefly typecheck
         entry: pyrefly check
-        language: python
-        additional_dependencies: [pyrefly]
+        language: system
         types: [python]
         files: \.py$
 

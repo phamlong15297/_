@@ -35,5 +35,6 @@ search_path = ["."]
 [dependency-groups]
 dev = [
     "pre-commit>=4.2.0",
+    "pyrefly>=0.26.0",
     "ruff>=0.12.5",
 ]
