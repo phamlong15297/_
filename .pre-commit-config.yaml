@@ -2,6 +2,11 @@
 # See https://pre-commit.com/hooks.html for more hooks
 # list of hooks: https://github.com/pre-commit/pre-commit-hooks/tree/main/pre_commit_hooks
 repos:
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker
+    rev: v2.7.0
+    hooks:
+      - id: editorconfig-checker
+
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.12.7
     hooks:
