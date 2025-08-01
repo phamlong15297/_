@@ -116,8 +116,8 @@ fi
 
 uv sync --dev
 uv pip install -r ./proj1/requirements.txt
-uv pip install -r ./proj1/requirements.txt
-uv pip install -r ./proj1/requirements.txt
+uv pip install -r ./proj2/requirements.txt
+uv pip install -r ./proj3/requirements.txt
 source ./.venv/bin/activate
 pre-commit install
 ```
