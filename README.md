@@ -115,9 +115,9 @@ if ! command -v uv &> /dev/null; then
 fi
 
 uv sync --dev
-uv pip install -r ./batch/requirements.txt
-uv pip install -r ./api/requirements.txt
-uv pip install -r ./cloud_libs/requirements.txt
+uv pip install -r ./proj1/requirements.txt
+uv pip install -r ./proj1/requirements.txt
+uv pip install -r ./proj1/requirements.txt
 source ./.venv/bin/activate
 pre-commit install
 ```
