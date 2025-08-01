@@ -103,3 +103,21 @@ In Vscode's UI, right click then "Format code with ... + Ruff" and "Source Actio
 
 ### Pyrefly
 Sometimes, it does not recognize the `.venv` folder, choose Python interpreter in right corner then Ctrl Shift P + Reload
+
+## Create a batch file for uv
+```shell
+#!/bin/bash
+
+curl -LsSf https://astral.sh/uv/install.sh | sh
+if ! command -v uv &> /dev/null; then
+    echo "Error: uv installation failed"
+    exit 1
+fi
+
+uv sync --dev
+uv pip install -r ./batch/requirements.txt
+uv pip install -r ./api/requirements.txt
+uv pip install -r ./cloud_libs/requirements.txt
+source ./.venv/bin/activate
+pre-commit install
+```
